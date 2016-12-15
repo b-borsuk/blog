@@ -26,4 +26,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     *
+     * @return Relation
+     */
+    public function publications()
+    {
+        return $this->hasMany(Publication::class, 'author_id');
+    }
 }

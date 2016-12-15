@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/control';
 
     /**
      * Create a new controller instance.
@@ -36,6 +36,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        $this->redirectTo = config('app.control_prefix', $this->redirectTo);
+
         $this->middleware('guest');
     }
 
